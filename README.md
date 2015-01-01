@@ -45,6 +45,12 @@ grunt.initConfig({
 
 The available options for this task correspond to the options for `phpdoc`. For more details refer to the documentation at [phpdoc.org](http://phpdoc.org/docs/latest/references/commands/project_run.html).
 
+#### template
+Type: `String`  
+Default: `clean`
+
+Select the template for the generated documentation. Run `phpdoc template:list` to get a list of available templates.
+
 #### verbose
 Type: `Boolean`  
 Default: `false`
