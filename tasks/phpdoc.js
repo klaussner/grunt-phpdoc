@@ -8,43 +8,73 @@
 
 'use strict';
 
+var exec = require('child_process').exec;
+
 module.exports = function(grunt) {
+  var desc = 'Create documentations for PHP code with phpDocumentor.';
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+  grunt.registerMultiTask('phpdoc', desc, function() {
+    var done = this.async();
 
-  grunt.registerMultiTask('phpdoc', 'Grunt plugin for phpDocumentor.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
+    function build(src, dest, last) {
+
+      // Create the parameters for files and directories.
+      var dirs = '', files = '';
+
+      src.forEach(function(path) {
+        if (grunt.file.isDir(path)) {
+          dirs += ' -d "' + path + '"';
+        } else if (grunt.file.isFile(path)) {
+          files += ' -f "' + path + '"';
+        }
+      });
+
+      // Build the command with all parameters.
+      var cmd = 'phpdoc';
+
+      if (dest) {
+        cmd += ' -t "' + dest + '"';
+      } else {
+        cmd += ' -t doc';
+      }
+
+      cmd += dirs;
+      cmd += files;
+
+      // Execute the phpdoc process.
+      exec(cmd, function(error, stdout, stderr) {
+        if (error != null) {
+          grunt.fail.fatal(error);
+        }
+
+        if (stderr.length > 0) {
+          grunt.fail.fatal('Failed to execute phpdoc.');
+        }
+
+        if (options.verbose) {
+          grunt.log.write(stdout);
+        }
+
+        if (last) {
+          done();
+        }
+      });
+    }
+
+    // Initialize options with default values.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      verbose: false
     });
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+    // Build one documentation for each file entry.
+    var todo = this.files.length;
 
-      // Handle options.
-      src += options.punctuation;
+    if (todo == 0) {
+      grunt.fail.warn('No input files.');
+    }
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+    this.files.forEach(function(file) {
+      build(file.src, file.dest, --todo == 0);
     });
   });
-
 };
