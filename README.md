@@ -1,6 +1,7 @@
-# grunt-phpdoc
-
+# grunt-phpdoc v0.1.0
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 > Create documentations for PHP code with phpDocumentor.
+
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -17,10 +18,15 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-phpdoc');
 ```
 
-## The "phpdoc" task
+## phpDocumentor
 
-### Overview
+**You need to have `phpdoc` installed globally in order to use this plugin.** Please visit [phpdoc.org](http://phpdoc.org) for more information and installation instructions.
+
+## The "phpdoc" task
+*Run this task with the `grunt phpdoc` command.*
+
 In your project's Gruntfile, add a section named `phpdoc` to the data object passed into `grunt.initConfig()`.
+Task targets, files, and options may be specified according to the [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ```js
 grunt.initConfig({
@@ -28,57 +34,52 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    your_target: {
+    target: {
       // Target-specific file lists and/or options go here.
-    },
-  },
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+The available options for this task correspond to the options for `phpdoc`. For more details refer to the documentation at [phpdoc.org](http://phpdoc.org/docs/latest/references/commands/project_run.html).
 
-A string value that is used to do something with whatever.
+#### verbose
+Type: `Boolean`  
+Default: `false`
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Display the output of the `phpdoc` command.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  phpdoc: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, a documentation is built for all PHP files in the *app/controllers* folder and for the file *app/util.php*. The result is stored in *doc/backend*. If no `dest` property is specified, a *doc* folder will be created automatically next to your Gruntfile.
 
 ```js
 grunt.initConfig({
   phpdoc: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      verbose: true
     },
+    src: [
+      'app/controllers',
+      'app/util.php'
+    ],
+    dest: 'doc/backend'
+  }
+});
+```
+
+You can also build multiple documentations simultaneously. The following configuration will create two separate documentations in the *doc* folder: *first* for the PHP files in *code/first* and *second* for the ones in *code/second*:
+
+```js
+grunt.initConfig({
+  phpdoc: {
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+      'doc/first': ['code/first'],
+      'doc/second': ['code/second']
+    }
+  }
 });
 ```
 
