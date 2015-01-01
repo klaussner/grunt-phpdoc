@@ -1,4 +1,7 @@
 <?php
+/**
+ * File summary.
+ */
 
 /**
  * A class used for testing grunt-phpdoc.

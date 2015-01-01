@@ -41,6 +41,8 @@ module.exports = function(grunt) {
       cmd += dirs;
       cmd += files;
 
+      cmd += ' --template="' + options.template + '"';
+
       // Execute the phpdoc process.
       exec(cmd, function(error, stdout, stderr) {
         if (error != null) {
@@ -63,6 +65,7 @@ module.exports = function(grunt) {
 
     // Initialize options with default values.
     var options = this.options({
+      template: 'clean',
       verbose: false
     });
 
