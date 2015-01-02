@@ -50,7 +50,8 @@ module.exports = function(grunt) {
         }
 
         if (stderr.length > 0) {
-          grunt.fail.fatal('Failed to execute phpdoc.');
+          var msg = 'Failed to execute phpdoc:\n' + stderr;
+          grunt.fail.fatal(msg);
         }
 
         if (options.verbose) {
