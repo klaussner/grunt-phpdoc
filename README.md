@@ -1,5 +1,5 @@
-# grunt-phpdoc v0.1.0
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-phpdoc v0.1.1 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 > Create documentations for PHP code with phpDocumentor.
 
 
@@ -47,7 +47,7 @@ The available options for this task correspond to the options for `phpdoc`. For 
 
 #### template
 Type: `String`  
-Default: `clean`
+Default: `'clean'`
 
 Select the template for the generated documentation. Run `phpdoc template:list` to get a list of available templates.
 
@@ -94,3 +94,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 * v0.1.0 (2015-01-01) Initial release
+  * v0.1.1 (2015-01-02) Output stderr in case of a fatal error
