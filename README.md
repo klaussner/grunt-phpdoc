@@ -2,7 +2,6 @@
 
 > Create documentations for PHP code with phpDocumentor.
 
-
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -19,7 +18,6 @@ grunt.loadNpmTasks('grunt-phpdoc');
 ```
 
 ## phpDocumentor
-
 **You need to have `phpdoc` installed globally in order to use this plugin.** Please visit [phpdoc.org](http://phpdoc.org) for more information and installation instructions.
 
 ## The "phpdoc" task
@@ -42,7 +40,6 @@ grunt.initConfig({
 ```
 
 ### Options
-
 The available options for this task correspond to the options for `phpdoc`. For more details refer to the documentation at [phpdoc.org](http://phpdoc.org/docs/latest/references/commands/project_run.html).
 
 #### template
@@ -58,7 +55,6 @@ Default: `false`
 Display the output of the `phpdoc` command.
 
 ### Usage Examples
-
 In this example, a documentation is built for all PHP files in the *app/controllers* folder and for the file *app/util.php*. The result is stored in *doc/backend*. If no `dest` property is specified, a *doc* folder will be created automatically next to your Gruntfile.
 
 ```js

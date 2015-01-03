@@ -14,7 +14,6 @@ module.exports = function(grunt) {
   var desc = 'Create documentations for PHP code with phpDocumentor.';
 
   grunt.registerMultiTask('phpdoc', desc, function() {
-    var done = this.async();
 
     function build(src, dest, last) {
 
@@ -71,14 +70,15 @@ module.exports = function(grunt) {
     });
 
     // Build one documentation for each file entry.
+    var done = this.async();
     var todo = this.files.length;
 
-    if (todo == 0) {
+    if (todo === 0) {
       grunt.fail.warn('No input files.');
     }
 
     this.files.forEach(function(file) {
-      build(file.src, file.dest, --todo == 0);
+      build(file.src, file.dest, --todo === 0);
     });
   });
 };
