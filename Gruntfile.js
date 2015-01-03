@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     phpdoc: {
-      dist: {
+      test: {
         options: {
           verbose: false
         },
