@@ -23,8 +23,8 @@ grunt.loadNpmTasks('grunt-phpdoc');
 ```
 
 ## phpDocumentor
-**You need to have `phpdoc` installed globally in order to use this plugin.
-** Please visit [phpdoc.org](http://phpdoc.org) for more information and
+**You need to have `phpdoc` installed globally in order to use this plugin.**
+Please visit [phpdoc.org](http://phpdoc.org) for more information and
 installation instructions.
 
 ## The "phpdoc" task
