@@ -2,7 +2,7 @@
  * grunt-phpdoc
  * https://github.com/chrisklaussner/grunt-phpdoc
  *
- * Copyright (c) 2015 Christian Klaussner
+ * Copyright (c) 2016 Christian Klaussner
  * Licensed under the MIT license
  */
 
