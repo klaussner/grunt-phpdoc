@@ -1,22 +1,22 @@
 {
   "name": "grunt-phpdoc",
-  "description": "Create documentations for PHP code with phpDocumentor.",
+  "description": "Create documentations for PHP code with phpDocumentor",
   "version": "0.1.1",
-  "homepage": "https://github.com/chrisklaussner/grunt-phpdoc",
+  "homepage": "https://github.com/klaussner/grunt-phpdoc",
   "author": {
     "name": "Christian Klaussner",
     "email": "developer@klaussner.me"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/chrisklaussner/grunt-phpdoc.git"
+    "url": "git://github.com/klaussner/grunt-phpdoc.git"
   },
   "bugs": {
-    "url": "https://github.com/chrisklaussner/grunt-phpdoc/issues"
+    "url": "https://github.com/klaussner/grunt-phpdoc/issues"
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": "> 0.8.0"
   },
   "scripts": {
     "test": "grunt test"
@@ -25,12 +25,14 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt": "~1.0.1"
+    "grunt": "~1.0"
   },
   "peerDependencies": {
-    "grunt": "~1.0.1"
+    "grunt": "~1.0"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "phpdoc",
+    "phpdocumentor"
   ]
 }
