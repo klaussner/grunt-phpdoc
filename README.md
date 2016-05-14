@@ -1,9 +1,9 @@
-# grunt-phpdoc v0.1.1 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-phpdoc v1.0.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Create documentations for PHP code with phpDocumentor
 
 ## Getting Started
-This plugin requires Grunt `~0.4.5`
+This plugin requires Grunt `~1.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out
 the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains
@@ -111,3 +111,4 @@ code using [Grunt](http://gruntjs.com/).
 ## Release History
 * v0.1.0 (2015-01-01) Initial release
   * v0.1.1 (2015-01-02) Output stderr in case of a fatal error
+* v1.0.0 (2016-05-14) Upgrade to Grunt 1.0

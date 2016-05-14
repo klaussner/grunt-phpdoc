@@ -1,7 +1,7 @@
 {
   "name": "grunt-phpdoc",
   "description": "Create documentations for PHP code with phpDocumentor",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/klaussner/grunt-phpdoc",
   "author": {
     "name": "Christian Klaussner",
