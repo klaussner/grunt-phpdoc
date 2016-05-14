@@ -54,14 +54,14 @@ more details refer to the documentation at
 [phpdoc.org](http://phpdoc.org/docs/latest/references/commands/project_run.html).
 
 #### template
-Type: `String`
+Type: `String`  
 Default: `'clean'`
 
 Select the template for the generated documentation. Run `phpdoc template:list`
 to get a list of available templates.
 
 #### verbose
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Display the output of the `phpdoc` command.
