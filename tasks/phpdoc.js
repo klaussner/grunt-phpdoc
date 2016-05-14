@@ -2,8 +2,8 @@
  * grunt-phpdoc
  * https://github.com/chrisklaussner/grunt-phpdoc
  *
- * Copyright (c) 2015 Christian Klaussner
- * Licensed under the MIT license.
+ * Copyright (c) 2016 Christian Klaussner
+ * Licensed under the MIT license
  */
 
 'use strict';
@@ -11,13 +11,14 @@
 var exec = require('child_process').exec;
 
 module.exports = function(grunt) {
-  var desc = 'Create documentations for PHP code with phpDocumentor.';
+  var desc = 'Create documentations for PHP code with phpDocumentor';
 
   grunt.registerMultiTask('phpdoc', desc, function() {
+    var options, done, todo;
 
     function build(src, dest, last) {
 
-      // Create the parameters for files and directories.
+      // Create parameters for files and directories
       var dirs = '', files = '';
 
       src.forEach(function(path) {
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
         }
       });
 
-      // Build the command with all parameters.
+      // Build command with all parameters
       var cmd = 'phpdoc';
 
       if (dest) {
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
 
       cmd += ' --template="' + options.template + '"';
 
-      // Execute the phpdoc process.
+      // Execute phpdoc process
       exec(cmd, function(error, stdout, stderr) {
         if (error != null) {
           grunt.fail.fatal(error);
@@ -63,15 +64,15 @@ module.exports = function(grunt) {
       });
     }
 
-    // Initialize options with default values.
-    var options = this.options({
+    // Initialize options with default values
+    options = this.options({
       template: 'clean',
       verbose: false
     });
 
-    // Build one documentation for each file entry.
-    var done = this.async();
-    var todo = this.files.length;
+    // Build one documentation for each file entry
+    done = this.async();
+    todo = this.files.length;
 
     if (todo === 0) {
       grunt.fail.warn('No input files.');
