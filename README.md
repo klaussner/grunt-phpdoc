@@ -54,14 +54,14 @@ more details refer to the documentation at
 [phpdoc.org](http://phpdoc.org/docs/latest/references/commands/project_run.html).
 
 #### template
-Type: `String`  
+Type: `String`
 Default: `'clean'`
 
 Select the template for the generated documentation. Run `phpdoc template:list`
 to get a list of available templates.
 
 #### verbose
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Display the output of the `phpdoc` command.
@@ -78,11 +78,13 @@ grunt.initConfig({
     options: {
       verbose: true
     },
-    src: [
-      'app/controllers',
-      'app/util.php'
-    ],
-    dest: 'doc/backend'
+    target: {
+      src: [
+        'app/controllers',
+        'app/util.php'
+      ],
+      dest: 'doc/backend'
+    }
   }
 });
 ```
@@ -95,9 +97,11 @@ configuration will create two separate documentations in the *doc* folder:
 ```js
 grunt.initConfig({
   phpdoc: {
-    files: {
-      'doc/first': ['code/first'],
-      'doc/second': ['code/second']
+    target: {
+      files: {
+        'doc/first': ['code/first'],
+        'doc/second': ['code/second']
+      }
     }
   }
 });
